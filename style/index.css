@@ -1,0 +1,88 @@
+/* variables */
+:root {
+  --laptop-screen-cards: 6;
+  --big-tab-screen-cards: 4;
+  --small-tab-screen-cards: 3;
+  --big-phone-screen-cards: 2;
+  --small-phone-screen-cards: 1;
+}
+
+/* reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  min-height: 100vh;
+  background-color: #fff;
+  position: relative;
+}
+
+
+/* card container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* card */
+.card {
+  width: calc(100% / var(--laptop-screen-cards));
+  background-color: #fff;
+  padding: 10px;
+}
+/* showing variable cards-per-row on different screens */
+@media screen and (max-width: 576px) {
+  .card {
+    width: calc(100% / var(--small-phone-screen-cards));
+  }
+}
+@media screen and (min-width: 576.1px) and (max-width: 768px) {
+  .card {
+    width: calc(100% / var(--big-phone-screen-cards));
+  }
+}
+@media screen and (min-width: 768.1px) and (max-width: 978px) {
+  .card {
+    width: calc(100% / var(--small-tab-screen-cards));
+  }
+}
+@media screen and (min-width: 978.1px) and (max-width: 1024px) {
+  .card {
+    width: calc(100% / var(--big-tab-screen-cards));
+  }
+}
+
+.card .card-inner {
+  box-shadow: 2px 5px 5px #aaa;
+  height: 100%;
+}
+
+.card-inner img {
+  width: 100%;
+}
+
+.card-inner .text {
+  padding: 16px;
+}
+
+.card-inner .text .card-header {
+  font-size: 22px;
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.card-inner .text .card-text {
+  font-size: 16px;
+}
+
+.card-inner .text button.know-more {
+  background-color: #808080;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 10px 40px;
+  margin: 10px auto;
+  display: block;
+}
